@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Belanja</string>
+    <string name="title_activity_main">Belanja</string>
+    <string name="package_name">id.belanja.personal</string>
+    <string name="custom_url_scheme">id.belanja.personal</string>
+</resources>

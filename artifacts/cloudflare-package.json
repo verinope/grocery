@@ -1,0 +1,12 @@
+{
+  "archive": "Belanja-PWA-Cloudflare.zip",
+  "sha256": "395686bbab95944f50e2f887d22612a6c2be8c2c0f414d7796dc3068343681fb",
+  "files": 38,
+  "largestFileBytes": 10923060,
+  "zipBytes": 22332374,
+  "cloudflareDashboardLimitsChecked": true,
+  "containsOnlyStaticWebBuild": true,
+  "deployed": true,
+  "deploymentUrl": "https://throbbing-bread-b3df.veagul-pepito.workers.dev/",
+  "deploymentProduct": "Cloudflare Workers Static Assets"
+}

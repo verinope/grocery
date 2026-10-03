@@ -1,0 +1,22 @@
+{
+  "url": "https://throbbing-bread-b3df.veagul-pepito.workers.dev/",
+  "checkedAtUtc": "2026-10-03T17:51:40.972640+00:00",
+  "https": true,
+  "manifestAndServiceWorkerAvailable": true,
+  "ocrModelAvailableWithCorrectGzipBytes": true,
+  "browser": "Chromium, mobile viewport 390x844",
+  "passed": [
+    "shopping list",
+    "reload persistence",
+    "history",
+    "receipt attachment",
+    "real OCR",
+    "manual corrections",
+    "photo persistence",
+    "atomic rollback",
+    "offline reload",
+    "offline OCR",
+    "responsive layout"
+  ],
+  "testedOnPhysicalIphone": false
+}

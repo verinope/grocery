@@ -1,0 +1,15 @@
+{
+  "appId": "id.belanja.personal",
+  "appName": "Belanja",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#fafaf7",
+    "allowMixedContent": false
+  },
+  "plugins": {
+    "SystemBars": {
+      "style": "LIGHT",
+      "initialViewportFitValueHint": "cover"
+    }
+  }
+}

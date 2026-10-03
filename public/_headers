@@ -1,0 +1,17 @@
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Service-Worker-Allowed: /
+  Content-Type: application/javascript; charset=utf-8
+
+/index.html
+  Cache-Control: no-cache
+
+/src/*
+  Cache-Control: no-cache
+
+/vendor/lang/*.gz
+  Content-Type: application/gzip
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

@@ -1,0 +1,23 @@
+node_modules/
+.pnpm-store/
+dist/
+.test-output/
+*.log
+.android-tools/
+android/.gradle/
+android/local.properties
+android/**/build/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+artifacts/*.apk
+artifacts/*.zip
+
+# Local credentials and signing keys
+.env
+.env.*
+!.env.example
+*.keystore
+*.jks
+*.p12
+*.pfx

@@ -1,0 +1,12 @@
+{
+  "apk": "Belanja-0.1.0-debug.apk",
+  "bytes": 32695020,
+  "sha256": "5d5c291ecd6104175a8e45629bb45cc4cb7d34baba70a51d91d83f208d99326c",
+  "webAssetsVerified": 37,
+  "localOcrModelVerified": true,
+  "nativeCameraAndAppPluginsVerified": true,
+  "physicalDeviceTested": false,
+  "emulatorTested": false,
+  "note": "Emulator could not boot on this host without hardware acceleration; device testing is still required.",
+  "androidOcrBranchWithPackagedAssetsTestedInChromium": true
+}
