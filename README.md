@@ -1,17 +1,17 @@
 # Belanja
 
-PWA daftar belanja pribadi dengan riwayat dan scan struk. Satu pengguna, satu list aktif; tanpa login atau server data.
+A personal grocery list PWA with shopping history and receipt scanning. One user, one active list, with no login or backend database.
 
-## Jalankan
+## Getting started
 
-Node.js 22 atau lebih baru dan pnpm diperlukan (Capacitor 8 menggunakan Node.js 22+).
+Requires Node.js 22 or later and pnpm (Capacitor 8 requires Node.js 22+).
 
 ```sh
 pnpm install
 pnpm dev
 ```
 
-Buka **http://localhost:5173**. `pnpm dev` membuat build lalu menjalankan preview. Setelah mengubah kode, hentikan dan jalankan ulang preview, lalu gunakan tombol **Perbarui** jika ada versi baru. Untuk pemeriksaan kode tanpa cache lama, gunakan profil browser baru.
+Open **http://localhost:5173**. `pnpm dev` builds the app and starts the preview server. After changing the code, stop and restart the preview, then use the **Perbarui** (Update) button when a new version is available. Use a fresh browser profile to check changes without an existing cache.
 
 ```sh
 pnpm test
@@ -19,71 +19,71 @@ pnpm build
 pnpm start
 ```
 
-Hasil build ada di `dist/`; bisa dipasang pada hosting statis dengan HTTPS pada root domain. Tidak ada layanan API, environment secret, atau database server yang harus disiapkan.
+Build output is written to `dist/` and can be deployed at the root of an HTTPS static hosting site. No API service, environment secrets, or database server setup is required.
 
-## Alur
+## User flow
 
-- Tambah barang melalui autocomplete bahan makanan Indonesia; jumlah dan satuan opsional. Tap baris untuk ceklis, ikon pensil untuk mengubah. Ceklis dan hapus dapat diurungkan sesaat.
-- **Selesai belanja** aktif setelah semua barang terceklis. Pilih scan struk atau simpan tanpa struk.
-- Ambil foto lewat kamera atau pilih galeri. OCR membaca foto di perangkat menggunakan Tesseract; hasilnya harus diperiksa. Nama produk, harga per baris dan total bayar dapat dikoreksi; produk juga bisa ditambah atau dihapus.
-- Harga produk adalah total untuk baris struk tersebut, bukan harga per unit. Total bayar dicatat terpisah agar diskon/pajak tidak disamarkan. Selisih ditampilkan untuk diperiksa.
-- Riwayat menyimpan waktu selesai, list awal, barang aktual, harga, total bayar dan foto. Struk dapat ditambahkan ke belanja lama tanpa mengubah list aktif atau tanggal belanja lama.
-- Scan yang belum selesai disimpan sebagai draft. List baru dikosongkan sesudah transaksi penyimpanan riwayat dan foto berhasil.
+- Add items using autocomplete for Indonesian grocery names; quantity and unit are optional. Tap a row to check it off or the pencil icon to edit it. Checking and deleting an item can be undone briefly afterward.
+- **Selesai belanja** (Finish shopping) becomes available once every item is checked off. Choose to scan a receipt or save without one.
+- Take a photo or choose one from the gallery. Tesseract runs OCR on the device; review the extracted results. Product names, line prices, and the total paid can be corrected, and products can be added or removed.
+- Each product price represents the total for that receipt line, rather than the unit price. The total paid is recorded separately to account for discounts and taxes. Any difference is shown for review.
+- History stores the completion time, original list, actual purchases, prices, total paid, and receipt photo. A receipt can be added to a previous trip without changing the active list or that trip's date.
+- Unfinished scans are saved as drafts. The active list is cleared only after the history entry and photo have been saved successfully in a single transaction.
 
-## PWA dan data
+## PWA and data storage
 
-Aplikasi, font, ikon, mesin OCR dan model bahasa disertakan dalam build serta dicache untuk offline. Instalasi pertama perlu internet dan mengunduh sekitar 40 MB aset. Tunggu status **Siap dipakai offline** pada Riwayat sebelum mencoba mode pesawat. Model bahasa Inggris mendukung huruf Latin pada struk Indonesia; singkatan produk dan foto buruk tetap perlu koreksi manual.
+The app, fonts, icons, OCR engine, and language model are included in the build and cached for offline use. The first installation requires an internet connection and downloads approximately 40 MB of assets. Wait for **Siap dipakai offline** (Ready for offline use) on the History screen before testing airplane mode. The English language model supports Latin characters on Indonesian receipts; abbreviated product names and poor photos may still require manual corrections.
 
-Di iPhone, buka URL HTTPS melalui Safari → Bagikan → Tambahkan ke Layar Utama. Kamera, service worker dan instalasi PWA memerlukan HTTPS, kecuali pada localhost di komputer. URL HTTP jaringan lokal bisa dipakai mengecek tampilan tetapi tidak cukup untuk instalasi/offline di iPhone.
+On iPhone, open the HTTPS URL in Safari → Share → Add to Home Screen. Camera access, service workers, and PWA installation require HTTPS, except when using localhost on a computer. A local network HTTP URL can be used to preview the interface but is not sufficient for installation and offline use on iPhone.
 
-Data berada di IndexedDB pada perangkat dan browser yang digunakan. Foto tidak dikirim ke layanan luar. Menghapus data situs/browser dapat menghapus list dan riwayat; sinkronisasi antarperangkat dan backup belum termasuk MVP. Penyimpanan persisten diminta setelah menyimpan struk, tetapi kebijakan browser tetap berlaku.
+Data is stored in IndexedDB on the device and browser being used. Photos are not sent to external services. Clearing site or browser data may delete lists and history; syncing across devices and backups are not included in the MVP. Persistent storage is requested after saving a receipt, subject to browser policy.
 
-## Struktur
+## Project structure and tests
 
-`src/app.js` mengelola layar dan interaksi; `domain.js` menjaga aturan list/arsip; `storage.js` melakukan transaksi atomik dan pemeriksaan versi antar-tab; `receipt.js` membaca nominal dan baris struk; `ocr.js` menyiapkan foto dan menjalankan OCR. `scripts/build.mjs` menyalin aset dan menghasilkan service worker dengan versi berdasarkan isi build.
+`src/app.js` manages screens and interactions; `domain.js` enforces list and archive rules; `storage.js` handles atomic transactions and version checks across tabs; `receipt.js` parses amounts and receipt lines; `ocr.js` prepares photos and runs OCR. `scripts/build.mjs` copies assets and generates a service worker whose version is based on the build contents.
 
-`pnpm test` menguji aturan arsip, validasi, autocomplete, dan parser struk. `tests/browser.mjs` menguji alur nyata dengan Chrome/Playwright termasuk OCR, reload, lampiran riwayat, rollback penyimpanan, dan offline. Untuk menjalankannya, sediakan paket `playwright` (atau isi `PLAYWRIGHT_MODULE` dengan lokasi modul yang sudah tersedia), jalankan preview, lalu `node tests/browser.mjs`.
+`pnpm test` covers archive rules, validation, autocomplete, and receipt parsing. `tests/browser.mjs` tests complete flows in Chrome with Playwright, including OCR, reloads, attaching receipts to history, storage rollback, and offline use. To run it, make the `playwright` package available (or set `PLAYWRIGHT_MODULE` to an existing module path), start the preview server, then run `node tests/browser.mjs`.
 
-Referensi visual: [Figma Belanja](https://www.figma.com/design/VxHTl9pk3bRZ3xBjGjkQiA). Ikon navigasi dan ceklis diambil dari desain tersebut. Dokumentasi OCR: [Tesseract.js local installation](https://github.com/naptha/tesseract.js/blob/master/docs/local-installation.md).
+Design reference: [Belanja on Figma](https://www.figma.com/design/VxHTl9pk3bRZ3xBjGjkQiA). Navigation and checkbox icons come from that design. OCR documentation: [Tesseract.js local installation](https://github.com/naptha/tesseract.js/blob/master/docs/local-installation.md).
 
-## APK Android
+## Android APK
 
-Hasil build APK untuk uji pribadi: `artifacts/Belanja-0.1.0-debug.apk`. APK, ZIP deployment, SDK, dependency dan kunci tanda tangan tidak disimpan di Git; buat ulang melalui skrip di bawah. Ini adalah build debug bertanda tangan, bukan rilis Play Store. Paket berisi seluruh UI, font, OCR dan model bahasa sehingga tidak memerlukan hosting atau unduhan aset saat pertama dibuka. Service worker hanya dijalankan pada versi PWA; versi Android menggunakan aset lokal dalam APK.
+APK build output for personal testing: `artifacts/Belanja-0.1.0-debug.apk`. APKs, deployment ZIPs, SDKs, installed dependencies, and signing keys are excluded from Git; use the scripts below to generate them locally. This is a signed debug build, not a Play Store release. The package includes the entire UI, fonts, OCR engine, and language model, so it needs no hosting or asset downloads on first launch. The service worker runs only in the PWA; Android uses assets bundled in the APK.
 
-Salin APK ke HP Android, buka melalui aplikasi Files, izinkan pemasangan dari aplikasi tersebut bila diminta Android, lalu tap Instal. Nama aplikasi: **Belanja**; ID: `id.belanja.personal`; versi: `0.1.0`. Minimum Android 7/API 24, dengan Android System WebView yang diperbarui. Kamera dan galeri menggunakan plugin native Capacitor; tombol kembali menutup sheet/navigasi, lalu meminimalkan aplikasi pada layar List Belanja.
+Copy the APK to an Android phone, open it using the Files app, allow installation from that app if Android prompts you, then tap Install. App name: **Belanja**; ID: `id.belanja.personal`; version: `0.1.0`. Requires Android 7/API 24 or later and an up-to-date Android System WebView. Camera and gallery access use native Capacitor plugins. The Back button dismisses an open sheet or navigates back, and minimizes the app when already on the shopping list screen.
 
-Data PWA dan APK terpisah. Tidak ada migrasi otomatis dari browser. Android backup dimatikan untuk menjaga data/foto di perangkat. Menghapus data aplikasi atau uninstall menghapus data lokal; untuk update, pasang APK baru di atas aplikasi lama dengan ID dan kunci tanda tangan yang sama.
+PWA and APK data are separate, with no automatic migration from the browser. Android backup is disabled to keep data and photos on the device. Clearing app data or uninstalling removes local data. To update, install the new APK over the existing app using the same application ID and signing key.
 
-Build ulang pada Windows:
+Rebuild on Windows:
 
 ```powershell
-./scripts/setup-android.ps1  # cukup sekali, mengunduh SDK dan JDK resmi
+./scripts/setup-android.ps1  # Run once to download the official SDK and JDK
 pnpm android:build
 ```
 
-Alat, SDK, cache Gradle dan kunci debug berada di `.android-tools/` pada drive proyek. Skrip memverifikasi checksum unduhan JDK/SDK dan tanda tangan APK. Android Studio tidak diperlukan untuk build melalui alat SDK ini; proyek `android/` tetap dapat dibuka di Android Studio bila diinginkan.
+Tools, SDKs, the Gradle cache, and the debug key are stored in `.android-tools/` on the project's drive. The scripts verify JDK/SDK download checksums and the APK signature. Android Studio is not required for builds using these SDK tools, but the `android/` project can still be opened in Android Studio.
 
-Pertahankan `.android-tools/signing/debug.keystore` untuk update build uji berikutnya. Kunci debug tidak cocok untuk distribusi produksi; rilis publik nanti perlu kunci rilis tersendiri dan proses rilis. File SHA-256 APK ada di `artifacts/Belanja-0.1.0-debug.apk.sha256`.
+Keep `.android-tools/signing/debug.keystore` for future updates to the test build. The debug key is unsuitable for production distribution; a public release needs a dedicated release key and release process. The APK's SHA-256 checksum is recorded in `artifacts/Belanja-0.1.0-debug.apk.sha256`.
 
-Pengujian Android opsional memakai `scripts/setup-emulator.ps1`; perangkat uji dan cache emulator juga disimpan di `.android-tools/`. Foto kamera dari HP sungguhan tetap perlu pemeriksaan dengan struk nyata.
+For optional Android emulator testing, use `scripts/setup-emulator.ps1`; the virtual device and emulator cache are also stored in `.android-tools/`. Camera capture still needs testing with actual receipts on a physical phone.
 
-`scripts/verify-apk.py` memeriksa setiap aset dalam APK terhadap build web, termasuk model bahasa `.gz` yang diekspansi AAPT menjadi `.traineddata`. OCR menggunakan `gzip: false` di Android dan `gzip: true` di PWA. Jalankan dengan Python, atau isi `BELANJA_PYTHON` sebelum build untuk pemeriksaan otomatis.
+`scripts/verify-apk.py` checks every asset in the APK against the web build, including the `.gz` language model that AAPT expands into `.traineddata`. OCR uses `gzip: false` on Android and `gzip: true` in the PWA. Run the script with Python, or set `BELANJA_PYTHON` before building to run verification automatically.
 
-Build dan tanda tangan APK sudah diverifikasi, serta alur browser dan OCR offline lolos pengujian. Emulator di komputer build ini belum berhasil boot tanpa akselerasi virtualisasi; APK belum diuji di HP fisik. Hasil pemeriksaan paket dicatat dalam `artifacts/verification.json`.
+The APK build and signature have been verified, and browser flows and offline OCR have passed testing. The emulator on the build machine could not boot without virtualization acceleration; the APK has not been tested on a physical phone. Package verification results are recorded in `artifacts/verification.json`.
 
-`tests/apk-ocr.mjs` juga berhasil menjalankan OCR sungguhan pada Chromium memakai aset yang diekstrak dari APK, dengan cabang Android (`gzip: false`) dan tanpa permintaan ke layanan luar. Ini memverifikasi format paket OCR, bukan kamera atau runtime WebView pada perangkat Android.
+`tests/apk-ocr.mjs` also successfully ran real OCR in Chromium using assets extracted from the APK, following the Android code path (`gzip: false`) with no requests to external services. This verifies the packaged OCR assets, but does not test the camera or WebView runtime on an Android device.
 
-## Hosting Cloudflare
+## Cloudflare hosting
 
-Deployment aktif saat ini menggunakan **Cloudflare Workers Static Assets** pada [Belanja](https://throbbing-bread-b3df.veagul-pepito.workers.dev/). Alur daftar, riwayat, OCR dan reload/scan saat offline sudah lolos pengujian Chromium pada URL tersebut. Belum diuji pada iPhone fisik. Bukti pemeriksaan ada di `artifacts/cloudflare-verification.json`.
+The current deployment uses **Cloudflare Workers Static Assets** at [Belanja](https://throbbing-bread-b3df.veagul-pepito.workers.dev/). Shopping lists, history, OCR, and offline reloads and scanning have passed Chromium tests at that URL. It has not been tested on a physical iPhone. Verification results are recorded in `artifacts/cloudflare-verification.json`.
 
-Build PWA dan paket Direct Upload:
+Build the PWA and Direct Upload package:
 
 ```sh
 pnpm build
 python scripts/package-cloudflare.py
 ```
 
-Unggah `artifacts/Belanja-PWA-Cloudflare.zip` melalui dashboard Cloudflare Pages. Paket memakai alamat bawaan HTTPS `*.pages.dev`; tidak membutuhkan domain berbayar, backend, token API di aplikasi, atau koneksi GitHub. Panduan ada di `artifacts/UPLOAD-CLOUDFLARE.md`.
+For a Cloudflare Pages deployment, upload `artifacts/Belanja-PWA-Cloudflare.zip` through the Pages dashboard. Pages provides a default HTTPS `*.pages.dev` address; no paid domain, backend, API token in the app, or GitHub connection is required. Instructions are in `artifacts/UPLOAD-CLOUDFLARE.md`.
 
-File `_headers` adalah konfigurasi Cloudflare dan sengaja tidak dimasukkan ke daftar precache. Browser tetap menggunakan model `.traineddata.gz`; perubahan model tanpa `.gz` hanya berlaku pada APK Android.
+The `_headers` file contains Cloudflare configuration and is intentionally excluded from the precache list. Browsers continue to use the `.traineddata.gz` model; the uncompressed model without `.gz` is used only in the Android APK.
