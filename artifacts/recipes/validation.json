@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-10-03T20:44:50.820434+00:00",
+  "recipeCount": 100,
+  "categories": {
+    "Ayam": 20,
+    "Daging": 8,
+    "Soto & sup": 8,
+    "Ikan & seafood": 16,
+    "Sayur": 18,
+    "Tahu, tempe & telur": 10,
+    "Nasi & mi": 14,
+    "Sambal": 6
+  },
+  "uniqueNames": true,
+  "uniqueRecipeContents": true,
+  "pinnedSourcesVerified": 100,
+  "allHaveIngredientsAndSteps": true,
+  "photosDownloaded": 0,
+  "errors": [],
+  "editorialReviewRequired": true,
+  "cookingTested": false,
+  "scope": "Structure, provenance and extraction checks only. No claim of culinary correctness or complete ingredient coverage."
+}

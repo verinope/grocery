@@ -9,3 +9,49 @@
 @media(max-width:359px){.page{padding-left:20px;padding-right:20px}h1{font-size:28px}.trip-card{padding:15px 10px;gap:8px}.trip-icon{display:none}.trip-copy>strong{font-size:11px}.trip-end{font-size:11px}.empty-state{padding-top:45px}.actual-row>strong{font-size:11px}.empty-state h2{font-size:19px}}
 @media(min-width:600px){.app-shell{border-left:1px solid #e2e6de;border-right:1px solid #e2e6de}.bottom-nav{border-left:1px solid #e2e6de;border-right:1px solid #e2e6de}dialog{margin:auto;border-radius:26px;padding-bottom:26px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Optional recipe flow, using the same paper and green palette as the list. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.recipe-entry{display:flex;align-items:center;gap:13px;width:100%;text-align:left;padding:19px 16px;margin-top:28px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.recipe-entry>.icon:first-child{color:var(--green);width:23px;height:23px}
+.recipe-entry>span{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.recipe-entry strong{font-size:13px}.recipe-entry small{font-size:11px;line-height:1.7;color:#657064}
+.recipe-entry>.icon:last-child{width:16px;color:var(--muted)}
+.recipe-search input{background:#fff;min-height:54px;font-size:16px}.recipe-search input::placeholder{font-size:14px}
+.recipe-categories{display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 27px}
+.recipe-categories button{border:1px solid var(--line);border-radius:12px;min-height:44px;font-size:11px;padding:10px 12px;color:#657064;background:#fff}
+.recipe-categories button[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.recipe-library-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+.recipe-library-heading h2{font-size:15px;letter-spacing:-.3px}.recipe-library-heading span{font-size:11px;color:#657064;white-space:nowrap}
+.recipe-cards{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.recipe-card{display:flex;align-items:center;gap:14px;min-height:102px;width:100%;padding:18px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px}
+.recipe-card>span{flex:1;min-width:0;display:flex;flex-direction:column;gap:7px}.recipe-card small{font-size:10px;color:var(--green)}
+.recipe-card strong{font-size:15px;line-height:1.5;overflow-wrap:anywhere}.recipe-card span>span{font-size:11px;color:#657064}.recipe-card>.icon{width:16px;color:var(--muted)}
+.recipe-empty{padding:48px 0;text-align:center}.recipe-empty h2{font-size:18px}.recipe-empty p{font-size:13px;line-height:1.8;color:#657064;margin:13px 0 24px}
+.recipe-loading{font-size:13px;color:#657064;padding-top:20px;text-align:center}
+.focus-flow .page-recipe,.focus-flow .page-recipe-added{padding-bottom:calc(128px + env(safe-area-inset-bottom,0px))}
+.focus-flow .page-recipe-pick{padding-bottom:calc(180px + env(safe-area-inset-bottom,0px))}
+.recipe-meta{display:flex;gap:10px;margin-bottom:32px}.recipe-meta span{font-size:11px;background:var(--light-green);color:var(--green);padding:8px 10px;border-radius:8px}
+.recipe-ingredients h2,.recipe-steps h2{font-size:19px;letter-spacing:-.4px;margin-bottom:18px}
+.recipe-ingredients h3{font-size:12px;color:#657064;font-weight:500;margin:22px 0 10px}
+.recipe-ingredients ul{padding-left:19px;margin:0;list-style:disc}.recipe-ingredients li{font-size:13px;line-height:1.85;padding:5px 0;overflow-wrap:anywhere}
+.recipe-steps{margin-top:35px}.recipe-steps ol{padding-left:24px;margin:0}.recipe-steps li{padding:0 0 17px 7px;font-size:13px;line-height:1.9;overflow-wrap:anywhere}.recipe-steps li::marker{font-weight:600;color:var(--green)}
+.recipe-source{border-top:1px solid var(--line);margin-top:20px;padding-top:23px}.recipe-source h2{font-size:12px;margin-bottom:10px}.recipe-source p{font-size:10px;line-height:1.9;color:#657064;margin:7px 0;overflow-wrap:anywhere}.recipe-source a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.recipe-footer{position:fixed;z-index:10;left:50%;transform:translateX(-50%);bottom:0;width:min(100%,430px);padding:16px 24px calc(16px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--paper)}
+.recipe-footer>p{font-size:10px;line-height:1.8;color:#657064;text-align:center;margin-bottom:12px}
+.recipe-help{font-size:13px;line-height:1.85;color:#657064;margin-bottom:15px}.recipe-select-all{margin-left:-4px;margin-bottom:8px;font-size:11px;text-align:left}
+.recipe-pick-row{display:flex;align-items:center;border-bottom:1px solid var(--line);min-height:90px;gap:6px}
+.recipe-pick-row>label{display:flex;align-items:flex-start;gap:13px;flex:1;min-width:0;min-height:76px;padding:18px 0;cursor:pointer}
+.recipe-pick-row input{width:22px;min-width:22px;height:22px;min-height:22px;margin:1px 0 0;padding:0;accent-color:var(--green);cursor:pointer}
+.recipe-pick-row label>span{display:flex;flex-direction:column;gap:6px;min-width:0}.recipe-pick-row strong{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.recipe-pick-row small{font-size:11px;line-height:1.8;color:#657064;overflow-wrap:anywhere}.recipe-existing label{cursor:default}.recipe-existing input{cursor:default;opacity:.45}
+.recipe-pick-row .tag{font-size:10px;line-height:1.7}.recipe-pick-row>.icon-button{margin-right:-9px}
+.recipe-reference{background:var(--light-green);padding:12px;border-radius:10px;overflow-wrap:anywhere}
+.recipe-success{text-align:center;margin:45px 0 32px}.recipe-success-mark{background:var(--light-green);color:var(--green);width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}.recipe-success-mark .icon{width:32px;height:32px}
+.recipe-success h2{font-size:21px;letter-spacing:-.5px;line-height:1.5}.recipe-success p{font-size:13px;color:#657064;line-height:1.9;margin-top:12px}
+.recipe-added-list>div{display:flex;flex-direction:column;gap:7px;padding:18px 0;border-bottom:1px solid var(--line)}.recipe-added-list strong{font-size:14px}.recipe-added-list span{font-size:11px;color:#657064}
+@media(max-width:359px){.recipe-footer{padding-left:20px;padding-right:20px}.recipe-library-heading h2{font-size:13px}.recipe-categories button{padding-left:10px;padding-right:10px}}
+
+.list-device-info{margin:28px 0 0}
+.list-device-info .storage-note{margin:0}
+.list-device-info .install-link{margin:3px auto 0;color:var(--green);font-size:11px}

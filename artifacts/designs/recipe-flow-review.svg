@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2440" viewBox="0 0 1440 2440"><title>Belanja — Recipe feature review flow</title><desc>Six proposed screens for an optional recipe flow. Existing shopping and history flows remain unchanged. No serving controls or automatic quantity merging.</desc>
+<rect x="0" y="0" width="1440" height="2440" rx="0" fill="#f0f2ed" stroke="none"/>
+<rect x="70" y="45" width="215" height="26" rx="13" fill="#edf4ec" stroke="none"/>
+<text x="81" y="63" fill="#3b7a57" font-size="11" font-weight="500" font-family="Inter,Arial,sans-serif">PROPOSAL · UNTUK REVIEW</text>
+<text x="70" y="123" fill="#20231f" font-size="42" font-weight="600" font-family="Inter,Arial,sans-serif">Dari ide masak, ke list belanja.</text>
+<text x="70" y="163" fill="#707b70" font-size="17" font-weight="400" font-family="Inter,Arial,sans-serif">Fitur Resep sebagai jalur tambahan. Belanja manual tetap menjadi flow utama.</text>
+<text x="70" y="191" fill="#707b70" font-size="17" font-weight="400" font-family="Inter,Arial,sans-serif">Tanpa pengaturan porsi. Pengguna menentukan jumlah sendiri lewat edit barang.</text>
+<rect x="70" y="221" width="1300" height="66" rx="16" fill="#ffffff" stroke="none"/>
+<text x="94" y="249" fill="#3b7a57" font-size="11" font-weight="700" font-family="Inter,Arial,sans-serif">ALUR UTAMA TETAP</text>
+<text x="94" y="272" fill="#20231f" font-size="15" font-weight="400" font-family="Inter,Arial,sans-serif">Tambah barang → ceklis di supermarket → selesai belanja → scan struk / simpan → riwayat</text>
+<text x="70" y="325" fill="#20231f" font-size="17" font-weight="600" font-family="Inter,Arial,sans-serif">01 / Akses opsional</text>
+<rect x="70" y="385" width="390" height="780" rx="24" fill="#fafaf7" stroke="#e3e8df"/>
+<g transform="translate(70,385)">
+<text x="24" y="30" fill="#20231f" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">9:41</text>
+<text x="311" y="30" fill="#20231f" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">•••  ▰</text>
+<text x="24" y="78" fill="#3b7a57" font-size="23" font-weight="700" font-family="Inter,Arial,sans-serif">belanja.</text>
+<text x="24" y="122" fill="#20231f" font-size="27" font-weight="600" font-family="Inter,Arial,sans-serif">List Belanja</text>
+<text x="24" y="148" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Sedikit persiapan, belanja lebih tenang.</text>
+<text x="24" y="195" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">2 barang belum diambil</text>
+<text x="291" y="195" fill="#3b7a57" font-size="13" font-weight="600" font-family="Inter,Arial,sans-serif">+ Tambah</text>
+<rect x="25" y="221" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="236" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Bawang putih</text>
+<text x="61" y="258" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">2 siung</text>
+<path d="M340 242 l10 -10 l4 4 l-10 10 l-5 1 Z" fill="none" stroke="#707b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 278H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="25" y="292" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="307" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Beras</text>
+<text x="61" y="329" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">1 kg</text>
+<path d="M340 313 l10 -10 l4 4 l-10 10 l-5 1 Z" fill="none" stroke="#707b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 349H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="384" width="342" height="75" rx="14" fill="#edf4ec" stroke="none"/>
+<text x="42" y="412" fill="#3b7a57" font-size="16" font-weight="600" font-family="Inter,Arial,sans-serif">Mau masak apa?</text>
+<text x="42" y="435" fill="#3b7a57" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Cari ide dari resep</text>
+<path d="M343 413l7 7-7 7" fill="none" stroke="#3b7a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="564" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">0 dari 2 barang</text>
+<text x="286" y="564" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Masuk troli</text>
+<rect x="24" y="581" width="342" height="5" rx="3" fill="#e3e8df" stroke="none"/>
+<rect x="24" y="607" width="342" height="49" rx="14" fill="#e3e8df" stroke="none"/>
+<text x="118" y="637" fill="#8b9588" font-size="14" font-weight="600" font-family="Inter,Arial,sans-serif">Selesai belanja</text>
+<text x="33" y="682" fill="#707b70" font-size="11" font-weight="400" font-family="Inter,Arial,sans-serif">Centang semua barang untuk menyelesaikan.</text>
+<rect x="0" y="701" width="390" height="79" rx="0" fill="#ffffff" stroke="none"/>
+<path d="M0 701H390" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="59" y="739" fill="#3b7a57" font-size="13" font-weight="600" font-family="Inter,Arial,sans-serif">List Belanja</text>
+<text x="259" y="739" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Riwayat</text>
+<rect x="130" y="765" width="130" height="4" rx="2" fill="#20231f" stroke="none"/>
+</g>
+<text x="70" y="1196" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Usulan pintu masuk sekunder, bukan langkah wajib.</text>
+<text x="70" y="1217" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Navigasi tetap List Belanja dan Riwayat.</text>
+<text x="525" y="325" fill="#20231f" font-size="17" font-weight="600" font-family="Inter,Arial,sans-serif">02 / Temukan resep</text>
+<rect x="525" y="385" width="390" height="780" rx="24" fill="#fafaf7" stroke="#e3e8df"/>
+<g transform="translate(525,385)">
+<text x="24" y="30" fill="#20231f" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">9:41</text>
+<text x="311" y="30" fill="#20231f" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">•••  ▰</text>
+<path d="M36 61l-8 8 8 8" fill="none" stroke="#3b7a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="49" y="74" fill="#3b7a57" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Kembali</text>
+<text x="24" y="122" fill="#20231f" font-size="27" font-weight="600" font-family="Inter,Arial,sans-serif">Resep</text>
+<text x="24" y="148" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">100 resep masakan Indonesia.</text>
+<rect x="24" y="176" width="342" height="46" rx="12" fill="#ffffff" stroke="#e3e8df"/>
+<text x="42" y="205" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Cari nama masakan</text>
+<rect x="24" y="240" width="72" height="26" rx="13" fill="#edf4ec" stroke="none"/>
+<text x="35" y="258" fill="#3b7a57" font-size="11" font-weight="500" font-family="Inter,Arial,sans-serif">Semua</text>
+<text x="115" y="258" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Lauk</text>
+<text x="183" y="258" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Sayur</text>
+<text x="263" y="258" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Praktis</text>
+<rect x="24" y="292" width="342" height="109" rx="16" fill="#ffffff" stroke="#e3e8df"/>
+<text x="42" y="317" fill="#3b7a57" font-size="10" font-weight="700" font-family="Inter,Arial,sans-serif">AYAM</text>
+<text x="42" y="344" fill="#20231f" font-size="18" font-weight="600" font-family="Inter,Arial,sans-serif">Ayam kecap</text>
+<text x="42" y="370" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Gurih manis, bahan mudah dicari.</text>
+<path d="M341 334l7 7-7 7" fill="none" stroke="#707b70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="419" width="342" height="109" rx="16" fill="#ffffff" stroke="#e3e8df"/>
+<text x="42" y="444" fill="#3b7a57" font-size="10" font-weight="700" font-family="Inter,Arial,sans-serif">SAYUR</text>
+<text x="42" y="471" fill="#20231f" font-size="18" font-weight="600" font-family="Inter,Arial,sans-serif">Tumis kangkung</text>
+<text x="42" y="497" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Sayur sederhana untuk sehari-hari.</text>
+<path d="M341 461l7 7-7 7" fill="none" stroke="#707b70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="546" width="342" height="109" rx="16" fill="#ffffff" stroke="#e3e8df"/>
+<text x="42" y="571" fill="#3b7a57" font-size="10" font-weight="700" font-family="Inter,Arial,sans-serif">TELUR</text>
+<text x="42" y="598" fill="#20231f" font-size="18" font-weight="600" font-family="Inter,Arial,sans-serif">Telur dadar sayur</text>
+<text x="42" y="624" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Praktis dengan bahan rumahan.</text>
+<path d="M341 588l7 7-7 7" fill="none" stroke="#707b70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="701" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Pilih masakan, lalu pilih bahan yang perlu dibeli.</text>
+</g>
+<text x="525" y="1196" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Katalog awal: 100 resep dalam 8 kategori.</text>
+<text x="525" y="1217" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Pencarian hanya berdasarkan nama masakan.</text>
+<text x="980" y="325" fill="#20231f" font-size="17" font-weight="600" font-family="Inter,Arial,sans-serif">03 / Lihat resep</text>
+<rect x="980" y="385" width="390" height="780" rx="24" fill="#fafaf7" stroke="#e3e8df"/>
+<g transform="translate(980,385)">
+<text x="24" y="30" fill="#20231f" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">9:41</text>
+<text x="311" y="30" fill="#20231f" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">•••  ▰</text>
+<path d="M36 61l-8 8 8 8" fill="none" stroke="#3b7a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="49" y="74" fill="#3b7a57" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Kembali</text>
+<text x="24" y="122" fill="#20231f" font-size="27" font-weight="600" font-family="Inter,Arial,sans-serif">Ayam kecap</text>
+<text x="24" y="148" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Gurih manis, bahan mudah dicari.</text>
+<rect x="24" y="178" width="122" height="26" rx="13" fill="#edf4ec" stroke="none"/>
+<text x="35" y="196" fill="#3b7a57" font-size="11" font-weight="500" font-family="Inter,Arial,sans-serif">Resep rumahan</text>
+<text x="24" y="246" fill="#20231f" font-size="19" font-weight="600" font-family="Inter,Arial,sans-serif">Bahan</text>
+<text x="24" y="274" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Takaran berikut sebagai referensi.</text>
+<text x="24" y="313" fill="#20231f" font-size="14" font-weight="400" font-family="Inter,Arial,sans-serif">Ayam</text>
+<text x="267" y="313" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">500 g</text>
+<text x="24" y="349" fill="#20231f" font-size="14" font-weight="400" font-family="Inter,Arial,sans-serif">Bawang putih</text>
+<text x="267" y="349" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">3 siung</text>
+<text x="24" y="385" fill="#20231f" font-size="14" font-weight="400" font-family="Inter,Arial,sans-serif">Kecap manis</text>
+<text x="267" y="385" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">3 sdm</text>
+<text x="24" y="421" fill="#20231f" font-size="14" font-weight="400" font-family="Inter,Arial,sans-serif">Garam</text>
+<text x="267" y="421" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Secukupnya</text>
+<path d="M24 449H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="488" fill="#20231f" font-size="19" font-weight="600" font-family="Inter,Arial,sans-serif">Cara memasak</text>
+<text x="24" y="521" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">1. Tumis bawang putih hingga harum.</text>
+<text x="24" y="550" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">2. Masukkan ayam, kecap, garam, dan air.</text>
+<text x="24" y="579" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">3. Masak hingga ayam matang dan empuk.</text>
+<rect x="24" y="653" width="342" height="49" rx="14" fill="#3b7a57" stroke="none"/>
+<text x="42" y="683" fill="white" font-size="14" font-weight="600" font-family="Inter,Arial,sans-serif">Pilih bahan untuk dibeli</text>
+<text x="34" y="734" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Jumlah belanja bisa kamu ubah di list nanti.</text>
+</g>
+<text x="980" y="1196" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Resep berisi bahan dan langkah memasak.</text>
+<text x="980" y="1217" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Tidak ada pilihan atau perhitungan porsi.</text>
+<text x="70" y="1375" fill="#20231f" font-size="17" font-weight="600" font-family="Inter,Arial,sans-serif">04 / Pilih yang perlu dibeli</text>
+<rect x="70" y="1435" width="390" height="780" rx="24" fill="#fafaf7" stroke="#e3e8df"/>
+<g transform="translate(70,1435)">
+<text x="24" y="30" fill="#20231f" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">9:41</text>
+<text x="311" y="30" fill="#20231f" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">•••  ▰</text>
+<path d="M36 61l-8 8 8 8" fill="none" stroke="#3b7a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="49" y="74" fill="#3b7a57" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Kembali</text>
+<text x="24" y="122" fill="#20231f" font-size="27" font-weight="600" font-family="Inter,Arial,sans-serif">Pilih bahan</text>
+<text x="24" y="148" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Dari resep Ayam kecap</text>
+<rect x="24" y="176" width="342" height="60" rx="12" fill="#edf4ec" stroke="none"/>
+<text x="39" y="199" fill="#3b7a57" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Pilih yang belum ada di rumah.</text>
+<text x="39" y="218" fill="#3b7a57" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Jumlah bisa diubah setelah masuk list.</text>
+<rect x="25" y="264" width="22" height="22" rx="7" fill="#3b7a57" stroke="#3b7a57"/>
+<path d="M30 275 l4 4 l8 -9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="61" y="282" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Ayam</text>
+<text x="61" y="305" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Referensi: 500 g</text>
+<path d="M24 324H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="24" y="339" width="342" height="93" rx="12" fill="#f0f2ed" stroke="none"/>
+<text x="40" y="365" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Bawang putih</text>
+<text x="40" y="391" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Sudah di list · 2 siung</text>
+<text x="264" y="416" fill="#3b7a57" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">Edit jumlah</text>
+<rect x="25" y="457" width="22" height="22" rx="7" fill="#3b7a57" stroke="#3b7a57"/>
+<path d="M30 468 l4 4 l8 -9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="61" y="475" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Kecap manis</text>
+<text x="61" y="498" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Referensi: 3 sdm</text>
+<path d="M24 518H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="25" y="545" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="563" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Garam</text>
+<text x="61" y="586" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Referensi: secukupnya</text>
+<text x="24" y="632" fill="#3b7a57" font-size="13" font-weight="600" font-family="Inter,Arial,sans-serif">2 bahan dipilih</text>
+<rect x="24" y="653" width="342" height="49" rx="14" fill="#3b7a57" stroke="none"/>
+<text x="42" y="683" fill="white" font-size="14" font-weight="600" font-family="Inter,Arial,sans-serif">Tambahkan 2 bahan ke list</text>
+</g>
+<text x="70" y="2246" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Bawang putih tidak dibuat ulang atau dijumlahkan.</text>
+<text x="70" y="2267" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">“Edit jumlah” membuka editor barang yang ada.</text>
+<text x="70" y="2288" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Tanpa pilihan: tombol Tambahkan dinonaktifkan.</text>
+<text x="525" y="1375" fill="#20231f" font-size="17" font-weight="600" font-family="Inter,Arial,sans-serif">05 / Konfirmasi penambahan</text>
+<rect x="525" y="1435" width="390" height="780" rx="24" fill="#fafaf7" stroke="#e3e8df"/>
+<g transform="translate(525,1435)">
+<text x="24" y="30" fill="#20231f" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">9:41</text>
+<text x="311" y="30" fill="#20231f" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">•••  ▰</text>
+<path d="M36 61l-8 8 8 8" fill="none" stroke="#3b7a57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="49" y="74" fill="#3b7a57" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Kembali</text>
+<text x="24" y="122" fill="#20231f" font-size="27" font-weight="600" font-family="Inter,Arial,sans-serif">Bahan ditambahkan</text>
+<rect x="146" y="187" width="98" height="98" rx="49" fill="#edf4ec" stroke="none"/>
+<path d="M174 235l14 14 31-33" fill="none" stroke="#3b7a57" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="61" y="335" fill="#20231f" font-size="24" font-weight="600" font-family="Inter,Arial,sans-serif">2 bahan masuk ke list</text>
+<text x="54" y="372" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Ayam dan kecap manis sudah ditambahkan.</text>
+<text x="54" y="397" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Bawang putih tetap memakai jumlah lama.</text>
+<rect x="24" y="430" width="342" height="116" rx="16" fill="#ffffff" stroke="#e3e8df"/>
+<text x="42" y="461" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Ayam</text>
+<text x="267" y="461" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">500 g</text>
+<path d="M42 483H348" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="42" y="515" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Kecap manis</text>
+<text x="267" y="515" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">3 sdm</text>
+<rect x="24" y="580" width="342" height="49" rx="14" fill="#3b7a57" stroke="none"/>
+<text x="42" y="610" fill="white" font-size="14" font-weight="600" font-family="Inter,Arial,sans-serif">Lihat list belanja</text>
+<rect x="24" y="643" width="342" height="49" rx="14" fill="#edf4ec" stroke="none"/>
+<text x="42" y="673" fill="#3b7a57" font-size="14" font-weight="600" font-family="Inter,Arial,sans-serif">Cari resep lain</text>
+<text x="37" y="736" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Sesuaikan jumlah dengan kebutuhan belanjamu.</text>
+</g>
+<text x="525" y="2246" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Berhasil hanya tampil setelah bahan tersimpan.</text>
+<text x="525" y="2267" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Jika gagal: tetap di pilihan bahan + Coba lagi.</text>
+<text x="525" y="2288" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Tap berulang tidak menambahkan bahan dua kali.</text>
+<text x="980" y="1375" fill="#20231f" font-size="17" font-weight="600" font-family="Inter,Arial,sans-serif">06 / Kembali ke list utama</text>
+<rect x="980" y="1435" width="390" height="780" rx="24" fill="#fafaf7" stroke="#e3e8df"/>
+<g transform="translate(980,1435)">
+<text x="24" y="30" fill="#20231f" font-size="12" font-weight="600" font-family="Inter,Arial,sans-serif">9:41</text>
+<text x="311" y="30" fill="#20231f" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">•••  ▰</text>
+<text x="24" y="78" fill="#3b7a57" font-size="23" font-weight="700" font-family="Inter,Arial,sans-serif">belanja.</text>
+<text x="24" y="122" fill="#20231f" font-size="27" font-weight="600" font-family="Inter,Arial,sans-serif">List Belanja</text>
+<text x="24" y="148" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Sedikit persiapan, belanja lebih tenang.</text>
+<text x="24" y="195" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">4 barang belum diambil</text>
+<text x="291" y="195" fill="#3b7a57" font-size="13" font-weight="600" font-family="Inter,Arial,sans-serif">+ Tambah</text>
+<rect x="25" y="221" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="236" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Bawang putih</text>
+<text x="61" y="258" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">2 siung</text>
+<path d="M340 242 l10 -10 l4 4 l-10 10 l-5 1 Z" fill="none" stroke="#707b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 278H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="25" y="292" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="307" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Beras</text>
+<text x="61" y="329" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">1 kg</text>
+<path d="M340 313 l10 -10 l4 4 l-10 10 l-5 1 Z" fill="none" stroke="#707b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 349H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="25" y="363" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="378" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Ayam</text>
+<text x="61" y="400" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">500 g</text>
+<path d="M340 384 l10 -10 l4 4 l-10 10 l-5 1 Z" fill="none" stroke="#707b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 420H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="25" y="434" width="22" height="22" rx="7" fill="#fafaf7" stroke="#bbc5b7"/>
+<text x="61" y="449" fill="#20231f" font-size="15" font-weight="500" font-family="Inter,Arial,sans-serif">Kecap manis</text>
+<text x="61" y="471" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">3 sdm</text>
+<path d="M340 455 l10 -10 l4 4 l-10 10 l-5 1 Z" fill="none" stroke="#707b70" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 491H366" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="24" y="564" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">0 dari 4 barang</text>
+<text x="286" y="564" fill="#707b70" font-size="12" font-weight="400" font-family="Inter,Arial,sans-serif">Masuk troli</text>
+<rect x="24" y="581" width="342" height="5" rx="3" fill="#e3e8df" stroke="none"/>
+<rect x="24" y="607" width="342" height="49" rx="14" fill="#e3e8df" stroke="none"/>
+<text x="118" y="637" fill="#8b9588" font-size="14" font-weight="600" font-family="Inter,Arial,sans-serif">Selesai belanja</text>
+<text x="33" y="682" fill="#707b70" font-size="11" font-weight="400" font-family="Inter,Arial,sans-serif">Centang semua barang untuk menyelesaikan.</text>
+<rect x="0" y="701" width="390" height="79" rx="0" fill="#ffffff" stroke="none"/>
+<path d="M0 701H390" fill="none" stroke="#e3e8df" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="59" y="739" fill="#3b7a57" font-size="13" font-weight="600" font-family="Inter,Arial,sans-serif">List Belanja</text>
+<text x="259" y="739" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Riwayat</text>
+<rect x="130" y="765" width="130" height="4" rx="2" fill="#20231f" stroke="none"/>
+</g>
+<text x="980" y="2246" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Barang baru berstatus belum diambil.</text>
+<text x="980" y="2267" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Ikon pensil memakai flow edit jumlah yang ada.</text>
+<text x="980" y="2288" fill="#707b70" font-size="13" font-weight="400" font-family="Inter,Arial,sans-serif">Ceklis → selesai → struk → riwayat tetap sama.</text>
+<rect x="70" y="2350" width="1300" height="46" rx="12" fill="#e4ebdf" stroke="none"/>
+<text x="90" y="2379" fill="#3b7a57" font-size="14" font-weight="500" font-family="Inter,Arial,sans-serif">REVIEW  ·  Pintu masuk Resep  /  Referensi takaran  /  Bahan yang sudah di list  /  Kembali ke belanja</text>
+</svg>

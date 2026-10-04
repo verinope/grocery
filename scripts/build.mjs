@@ -4,6 +4,7 @@ import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { build } from 'esbuild';
 const require = createRequire(import.meta.url);
+await import('./build-recipes.mjs');
 await mkdir('dist', { recursive: true });
 await cp('src', 'dist/src', { recursive: true });
 await cp('public', 'dist', { recursive: true });

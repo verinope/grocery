@@ -1,0 +1,15 @@
+{
+  "recipesOpened": 100,
+  "sourceLinksVerified": 100,
+  "searchByNameOnly": true,
+  "selectionSimulation": true,
+  "responsiveWidths": [
+    320,
+    390,
+    430,
+    1280
+  ],
+  "externalRequests": [],
+  "consoleErrors": [],
+  "pwaModified": false
+}

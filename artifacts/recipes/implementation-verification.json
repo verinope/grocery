@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "recipes": 100,
+  "checks": [
+    "name-only search",
+    "categories",
+    "source attribution",
+    "selection and grouped references",
+    "unchanged existing quantities and history",
+    "manual quantity editing and reload",
+    "atomic concurrent-change rejection and retry",
+    "offline catalog and additions",
+    "all-checked archiving",
+    "responsive 320/390/430/1000px"
+  ],
+  "errors": [],
+  "missing": [],
+  "checkedOn": "2026-10-04",
+  "target": "local PWA build; Cloudflare update not deployed",
+  "domainTestsPassed": 16,
+  "existingBrowserRegression": "passed: shopping, reload, history, receipt attachment, real OCR, corrections, photo persistence, atomic rollback, offline OCR",
+  "physicalPhoneTested": false
+}

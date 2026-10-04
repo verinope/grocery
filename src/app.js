@@ -4,6 +4,7 @@ import { loadState, commit, readReceipt } from './storage.js';
 import { parseRupiah } from './receipt.js';
 import { preparePhoto, recognizeReceipt } from './ocr.js';
 import { isNative, selectNativePhoto, initializeNative, minimizeNativeApp } from './platform.js';
+import { createRecipeUI } from './recipe-ui.js';
 
 const app = document.querySelector('#app');
 const nav = document.querySelector('#navigation');
@@ -12,6 +13,7 @@ const toast = document.querySelector('#toast');
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const paths = {
   plus: '<path d="M12 5v14M5 12h14"/>', back: '<path d="m15 5-7 7 7 7"/>', arrow: '<path d="m9 5 7 7-7 7"/>',
+  book: '<path d="M12 5v15M3 4h4a5 5 0 0 1 5 2 5 5 0 0 1 5-2h4v15h-4a5 5 0 0 0-5 2 5 5 0 0 0-5-2H3V4Z"/>',
   close: '<path d="m6 6 12 12M18 6 6 18"/>', edit: '<path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15v5Z"/>',
   camera: '<path d="M4 6h4l2-3h4l2 3h4a1 1 0 0 1 1 1v13H3V7a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/>',
   receipt: '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 7h6M9 11h6M9 15h3"/>',
@@ -44,6 +46,16 @@ function mutate(change, operation = null, repaint = true) {
 const primary = (text, action, extra = '') => `<button class="button primary" data-action="${action}" ${extra}>${text}</button>`;
 const secondary = (text, action, extra = '') => `<button class="button secondary" data-action="${action}" ${extra}>${text}</button>`;
 const top = (title, subtitle, back = false) => `<header class="page-header">${back ? `<button class="icon-button back" data-action="back" aria-label="Kembali">${icon('back')}</button>` : '<div class="wordmark">belanja<span>.</span></div>'}<h1>${title}</h1>${subtitle ? `<p>${subtitle}</p>` : ''}</header>`;
+const recipeUI = createRecipeUI({ app, getState: () => state, mutate, go, escape, top, icon, isCurrent: token => token === renderId });
+function back() {
+  const [page, id] = route();
+  if (page === 'recipe-pick') go(`recipe/${id}`);
+  else if (page === 'recipe') go('recipes');
+  else if (['recipes', 'recipe-added', 'history'].includes(page)) go('list');
+  else if (page === 'review') go('scan');
+  else if (page === 'scan') go(state.draft?.targetTripId ? `trip/${state.draft.targetTripId}` : 'list');
+  else go('history');
+}
 function openSheet(title, content) {
   if (sheet.open) sheet.close();
   sheet.innerHTML = `<div class="sheet-handle"></div><div class="sheet-heading"><h2 id="sheet-title">${title}</h2><button class="icon-button" data-action="close-sheet" aria-label="Tutup">${icon('close')}</button></div>${content}`;
@@ -54,10 +66,12 @@ function closeSheet() { sheet.close(); }
 
 function renderList() {
   const done = state.items.filter(item => item.checked); const remaining = state.items.filter(item => !item.checked);
-  const rows = items => items.map(item => `<div class="item-row ${item.checked ? 'is-checked' : ''}"><button class="item-toggle" data-action="toggle" data-id="${item.id}" aria-pressed="${item.checked}" aria-label="${item.checked ? 'Batalkan ceklis' : 'Centang'} ${escape(item.name)}">${checkboxArt(item.checked)}<span class="item-copy"><span class="item-name">${escape(item.name)}</span>${quantityLabel(item) ? `<small>${escape(quantityLabel(item))}</small>` : ''}</span></button><button class="icon-button edit-item" data-action="edit-item" data-id="${item.id}" aria-label="Ubah ${escape(item.name)}">${icon('edit')}</button></div>`).join('');
+  const rows = items => items.map(item => `<div class="item-row ${item.checked ? 'is-checked' : ''}"><button class="item-toggle" data-action="toggle" data-id="${item.id}" aria-pressed="${item.checked}" aria-label="${item.checked ? 'Batalkan ceklis' : 'Centang'} ${escape(item.name)}">${checkboxArt(item.checked)}<span class="item-copy"><span class="item-name">${escape(item.name)}</span>${quantityLabel(item) || item.recipeReference ? `<small>${escape(quantityLabel(item) || 'Jumlah belum diisi')}</small>` : ''}</span></button><button class="icon-button edit-item" data-action="edit-item" data-id="${item.id}" aria-label="Ubah ${escape(item.name)}">${icon('edit')}</button></div>`).join('');
   app.innerHTML = top('List Belanja', 'Sedikit persiapan, belanja lebih tenang.') +
     (state.draft ? `<button class="draft-card" data-action="resume">${icon('receipt')}<span><strong>Struk belum selesai</strong><small>Lanjutkan pencatatan belanja</small></span>${icon('arrow')}</button>` : '') +
     (state.items.length ? `<div class="list-heading"><span>${remaining.length ? `${remaining.length} barang belum diambil` : 'Semua sudah di troli'}</span><button class="add-button" data-action="add-item">${icon('plus')} Tambah</button></div><div class="item-list">${rows(remaining)}</div>${done.length ? `<div class="section-label">DI TROLI <span>${done.length}</span></div><div class="item-list">${rows(done)}</div>` : ''}<div class="list-footer"><div class="progress-meta"><span>${done.length} dari ${state.items.length} barang</span><strong>${allChecked(state) ? 'Siap selesai' : 'Masuk troli'}</strong></div><div class="progress-track"><span style="width:${100 * done.length / state.items.length}%"></span></div>${primary(`${allChecked(state) ? icon('check') : ''}Selesai belanja`, 'finish', allChecked(state) ? '' : 'disabled')}<p class="footnote">${allChecked(state) ? 'Simpan belanja hari ini ke riwayat.' : 'Centang semua barang untuk menyelesaikan belanja.'}</p></div>` : `<section class="empty-state"><div class="empty-art"><img src="/assets/empty-ring.svg" width="108" height="108" alt=""><img src="/assets/empty-center.svg" width="48" height="48" alt="">${icon('check')}</div><h2>Mau belanja apa hari ini?</h2><p>Tulis barang yang kamu butuhkan.<br>Centang saat sudah masuk troli.</p>${primary(`${icon('plus')}Tambah barang pertama`, 'add-item')}<span class="empty-note">Mulai dari satu barang juga boleh.</span></section>`);
+  app.insertAdjacentHTML('beforeend', `<button class="recipe-entry" data-action="recipe-open">${icon('book')}<span><strong>Mau masak apa?</strong><small>Cari resep dan pilih bahan untuk dibeli.</small></span>${icon('arrow')}</button>`);
+  app.insertAdjacentHTML('beforeend', `<div class="list-device-info"><div class="storage-note" role="status"><span class="status-dot ${isNative || navigator.onLine ? '' : 'offline'}"></span><span>${isNative || navigator.onLine ? offlineReady ? 'Siap dipakai offline' : 'Menyiapkan akses offline…' : 'Sedang offline'} · Data di perangkat ini</span></div>${isNative ? '' : `<button class="text-button install-link" data-action="install">${installEvent ? 'Pasang aplikasi Belanja' : 'Cara pasang di layar utama'}</button>`}</div>`);
 }
 function renderHistory() {
   let lastMonth = '';
@@ -65,11 +79,7 @@ function renderHistory() {
     const month = monthLabel(trip.completedAt); const heading = month === lastMonth ? '' : `<h2 class="month-heading">${month}</h2>`; lastMonth = month;
     return `${heading}<button class="trip-card" data-action="trip" data-id="${trip.id}"><span class="trip-icon">${icon('receipt')}</span><span class="trip-copy"><strong>${escape(fullDate(trip.completedAt))}</strong><small>${shortTime(trip.completedAt)} · ${trip.actual?.length || trip.planned.length} barang</small><span class="tag ${trip.actual ? 'green' : ''}">${trip.actual ? 'Struk tersimpan' : 'Tanpa struk'}</span></span><span class="trip-end">${trip.actual ? `<strong>${rupiah(trip.totalPayment)}</strong>` : ''}${icon('arrow')}</span></button>`;
   }).join('');
-  app.innerHTML = top('Riwayat', 'Belanja yang sudah selesai, tersimpan di sini.') + (cards || `<section class="empty-state history-empty"><div class="empty-receipt">${icon('receipt')}</div><h2>Belum ada riwayat</h2><p>Selesaikan daftar belanjamu.<br>Barang dan waktunya akan tercatat di sini.</p>${secondary('Lihat list belanja', 'list')}</section>`) + `<div class="storage-note"><span class="status-dot ${navigator.onLine ? '' : 'offline'}"></span><span>${navigator.onLine ? offlineReady ? 'Siap dipakai offline' : 'Menyiapkan akses offline…' : 'Sedang offline'} · Data di perangkat ini</span></div><button class="text-button install-link" data-action="install">${installEvent ? 'Pasang aplikasi Belanja' : 'Cara pasang di layar utama'}</button>`;
-  if (isNative) {
-    app.querySelector('.install-link')?.remove();
-    app.querySelector('.storage-note span:last-child').textContent = 'Siap dipakai offline · Data di perangkat ini';
-  }
+  app.innerHTML = top('Riwayat', 'Belanja yang sudah selesai, tersimpan di sini.') + (cards || `<section class="empty-state history-empty"><div class="empty-receipt">${icon('receipt')}</div><h2>Belum ada riwayat</h2><p>Selesaikan daftar belanjamu.<br>Barang dan waktunya akan tercatat di sini.</p>${secondary('Lihat list belanja', 'list')}</section>`);
 }
 function renderTrip(id) {
   const trip = state.trips.find(t => t.id === id); if (!trip) { go('history'); return; }
@@ -95,12 +105,12 @@ function renderReview() {
 function render() {
   if (!state) return;
   renderId++; if (photoURL) { URL.revokeObjectURL(photoURL); photoURL = null; }
-  const [page, id] = route(); const focusFlow = ['scan', 'review'].includes(page);
+  const [page, id] = route(); const recipeFlow = ['recipes', 'recipe', 'recipe-pick', 'recipe-added'].includes(page); const focusFlow = ['scan', 'review'].includes(page) || recipeFlow;
   document.body.classList.toggle('focus-flow', focusFlow);
   app.className = `page page-${page}`;
   nav.hidden = focusFlow;
   nav.innerHTML = `<a href="#list" class="nav-link ${page === 'list' ? 'active' : ''}" ${page === 'list' ? 'aria-current="page"' : ''}><span class="nav-icon list-icon"></span><span>List Belanja</span></a><a href="#history" class="nav-link ${['history', 'trip'].includes(page) ? 'active' : ''}" ${['history', 'trip'].includes(page) ? 'aria-current="page"' : ''}><span class="nav-icon history-icon"></span><span>Riwayat</span></a>`;
-  if (page === 'history') renderHistory(); else if (page === 'trip') renderTrip(id); else if (page === 'scan') renderScan(); else if (page === 'review') renderReview(); else renderList();
+  if (recipeFlow) recipeUI.render(page, id, renderId); else if (page === 'history') renderHistory(); else if (page === 'trip') renderTrip(id); else if (page === 'scan') renderScan(); else if (page === 'review') renderReview(); else renderList();
 }
 async function showPhoto(id, target) {
   const token = renderId; const photo = await readReceipt(id);
@@ -112,6 +122,7 @@ function itemSheet(id) {
   const item = state.items.find(p => p.id === id);
   openSheet(item ? 'Ubah barang' : 'Tambah barang', `<form id="item-form" data-id="${item?.id || ''}"><label for="item-name">Nama barang</label><input id="item-name" name="name" placeholder="Misalnya: telur, susu, bayam" value="${escape(item?.name || '')}" maxlength="120" autocomplete="off" required><div id="suggestions" class="suggestions" aria-label="Saran nama barang"></div><div class="field-pair"><div><label for="item-quantity">Jumlah <span>opsional</span></label><input id="item-quantity" name="quantity" inputmode="decimal" placeholder="Contoh: 1" value="${escape(item?.quantity || '')}"></div><div><label for="item-unit">Satuan</label><select id="item-unit" name="unit">${units.map(unit => `<option value="${unit}" ${item?.unit === unit ? 'selected' : ''}>${unit || 'Pilih satuan'}</option>`).join('')}</select></div></div><p class="form-error" role="alert"></p><button class="button primary" type="submit">${item ? 'Simpan perubahan' : 'Tambah ke list'}</button>${item ? `<button class="text-button danger" type="button" data-action="delete-item" data-id="${item.id}">${icon('trash')} Hapus barang</button>` : ''}</form>`);
   if (!item) updateSuggestions('');
+  if (item?.recipeReference) sheet.querySelector('.field-pair').insertAdjacentHTML('afterend', `<p class="field-hint recipe-reference"><strong>Referensi resep</strong><br>${escape(item.recipeReference)}<br>Isi jumlah belanja sesuai kebutuhanmu.</p>`);
 }
 function updateSuggestions(query) {
   const target = sheet.querySelector('#suggestions'); if (!target || sheet.querySelector('#item-form').dataset.id) return;
@@ -160,6 +171,7 @@ document.addEventListener('click', async event => {
   const { action, id } = button.dataset;
   try {
     if (action === 'close-sheet') closeSheet();
+    else if (action.startsWith('recipe-')) await recipeUI.action(button);
     else if (action === 'add-item') itemSheet();
     else if (action === 'edit-item') itemSheet(id);
     else if (action === 'suggestion') { sheet.querySelector('#item-name').value = button.dataset.name; sheet.querySelector('#suggestions').innerHTML = ''; sheet.querySelector('#item-quantity').focus(); }
@@ -184,10 +196,8 @@ document.addEventListener('click', async event => {
     else if (action === 'trip') { tripTab = 'actual'; go(`trip/${id}`); }
     else if (action === 'tab-actual' || action === 'tab-planned') { tripTab = action === 'tab-actual' ? 'actual' : 'planned'; render(); }
     else if (action === 'list') go('list');
-    else if (action === 'back') {
-      const [page] = route();
-      if (page === 'review') go('scan'); else if (page === 'scan') go(state.draft?.targetTripId ? `trip/${state.draft.targetTripId}` : 'list'); else go('history');
-    } else if (action === 'camera' || action === 'gallery') {
+    else if (action === 'back') back();
+    else if (action === 'camera' || action === 'gallery') {
       if (isNative) { const photo = await selectNativePhoto(action); if (photo) await processPhoto(photo); }
       else document.querySelector(`#${action === 'camera' ? 'camera' : 'gallery'}-input`).click();
     }
@@ -208,8 +218,9 @@ document.addEventListener('click', async event => {
     }
   } catch (error) { button.disabled = false; notify(error.message || 'Belum berhasil. Coba lagi.'); }
 });
-document.addEventListener('input', event => { if (event.target.id === 'item-name') updateSuggestions(event.target.value); });
+document.addEventListener('input', event => { if (event.target.id === 'item-name') updateSuggestions(event.target.value); recipeUI.input(event.target); });
 document.addEventListener('change', async event => {
+  recipeUI.change(event.target);
   if (['camera-input', 'gallery-input'].includes(event.target.id) && event.target.files[0]) {
     const file = event.target.files[0]; event.target.value = '';
     try { await processPhoto(file); } catch (error) { notify(error.message); }
@@ -251,7 +262,7 @@ window.addEventListener('hashchange', () => {
 });
 channel?.addEventListener('message', async () => { await mutationQueue; const latest = await loadState(); if (latest && latest.revision > state.revision) { state = latest; render(); notify('Data diperbarui dari tab lain.'); } });
 window.addEventListener('online', render); window.addEventListener('offline', render);
-window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); installEvent = event; if (route()[0] === 'history') render(); });
+window.addEventListener('beforeinstallprompt', event => { event.preventDefault(); installEvent = event; if (route()[0] === 'list') render(); });
 async function setupOffline() {
   if (isNative || !('serviceWorker' in navigator)) return;
   try {
@@ -263,7 +274,7 @@ async function setupOffline() {
       banner.querySelector('button').onclick = () => { registration.waiting?.postMessage('SKIP_WAITING'); };
     };
     showUpdate(); registration.addEventListener('updatefound', () => { registration.installing?.addEventListener('statechange', showUpdate); });
-    await navigator.serviceWorker.ready; offlineReady = true; if (route()[0] === 'history') render();
+    await navigator.serviceWorker.ready; offlineReady = true; if (route()[0] === 'list') render();
     let hadController = !!navigator.serviceWorker.controller;
     navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController) location.reload(); hadController = true; });
   } catch { offlineReady = false; }
@@ -274,10 +285,7 @@ try {
     onBack: async () => {
       if (sheet.open) { closeSheet(); return; }
       const [page] = route();
-      if (page === 'review') go('scan');
-      else if (page === 'scan') go(state.draft?.targetTripId ? `trip/${state.draft.targetTripId}` : 'list');
-      else if (page === 'trip') go('history');
-      else if (page === 'history') go('list');
+      if (page !== 'list') back();
       else { await mutationQueue; await minimizeNativeApp(); }
     },
     onRestoredPhoto: async (photo, error) => {

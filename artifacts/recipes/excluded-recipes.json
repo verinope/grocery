@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Ayam goreng mentega",
+    "reason": "Source contains multiple recipe versions; hold until one version is curated."
+  },
+  {
+    "name": "Ayam Bakar Iloni",
+    "ingredients": 14,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Dendeng balado",
+    "ingredients": 18,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Bistik solo",
+    "reason": "Beef appears in ingredients but the instructions only prepare chicken; hold for editorial review."
+  },
+  {
+    "name": "Cakalang pampis",
+    "ingredients": 14,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Pindang serani",
+    "reason": "Source describes fish but lists chicken/beef; inconsistent recipe."
+  },
+  {
+    "name": "Pindang bandeng kecap",
+    "reason": "Cooking steps mention seasonings absent from the ingredient list."
+  },
+  {
+    "name": "Gulai Udang Kacang Panjang",
+    "ingredients": 0,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Gabus Pucung",
+    "reason": "Source reuses an ingredient heading for cooking instructions; requires manual curation."
+  },
+  {
+    "name": "Tumis kol",
+    "ingredients": 9,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Gado-gado",
+    "reason": "Source contains a merged/corrupted ingredient line; hold for editorial correction."
+  },
+  {
+    "name": "Ketoprak",
+    "ingredients": 14,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Tahu bacem",
+    "ingredients": 10,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Pepes tempe",
+    "ingredients": 0,
+    "steps": 3,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Botok tempe teri",
+    "ingredients": 0,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Tempe mendoan",
+    "reason": "Source contains multiple recipe versions; hold until one version is curated."
+  },
+  {
+    "name": "Telur dadar",
+    "ingredients": 0,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Nasi goreng",
+    "reason": "Cooking steps mention seasonings absent from the ingredient list."
+  },
+  {
+    "name": "Nasi goreng pete",
+    "ingredients": 9,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Nasi Liwet Solo",
+    "reason": "Complex multi-dish source needs manual separation before import."
+  },
+  {
+    "name": "Nasi gandul",
+    "ingredients": 10,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Mie Aceh",
+    "reason": "Source repeats ingredients and cooking steps with different seasonings."
+  },
+  {
+    "name": "Soto Bandung",
+    "reason": "Source contains two versions; do not merge their ingredients and instructions."
+  },
+  {
+    "name": "Soto Lamongan",
+    "ingredients": 1,
+    "steps": 0,
+    "reason": "Incomplete extraction or damaged source characters; excluded rather than inventing content."
+  },
+  {
+    "name": "Sate ayam",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Gulai tunjang",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Gulai cancang",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Pindang tulang",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Karedok",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Lotek",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Pecel Madiun",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Pepes jamur",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Gulai telur",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Rendang telor",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Mi celor",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Mi koclok",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Mi rebus Aceh",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Soto Padang",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Soto kuning Bogor",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Soto mi Bogor",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Sup ayam",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Sup pangsit Jepara",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Sambal oncom",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Sambal goreng kentang",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Sambal goreng krecek",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  },
+  {
+    "name": "Sambal tumpang",
+    "reason": "Reserve recipe; category quota filled for the first 100."
+  }
+]
